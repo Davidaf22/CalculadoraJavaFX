@@ -3,6 +3,7 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
@@ -11,11 +12,18 @@ public class Controller {
     public String operacion="";
     @FXML
     public Label label;
+    public TextField ip;
+    public TextField puerto;
 
     @FXML
     void calcular(javafx.event.ActionEvent event) throws IOException {
 
-        label.setText(ConexionHilo.conectar(operacion));
+        String ipA = ip.getText();
+        String puertoS = puerto.getText();
+        int puertoI = Integer.parseInt(puertoS);
+
+
+        label.setText(ConexionHilo.conectar(operacion,puertoI,ipA));
         operacion="";
 
     }

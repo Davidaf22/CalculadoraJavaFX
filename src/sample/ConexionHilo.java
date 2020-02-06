@@ -9,9 +9,9 @@ import java.net.Socket;
 public class ConexionHilo {
 
 
-    public static String conectar(String operacion) throws IOException{
+    public static String conectar(String operacion, int puerto, String ip) throws IOException{
         Socket clienteSocket = new Socket();
-        InetSocketAddress addr=new InetSocketAddress("192.168.0.27",5555);
+        InetSocketAddress addr=new InetSocketAddress(ip,puerto);
         clienteSocket.connect(addr);
 
         InputStream is = clienteSocket.getInputStream();
