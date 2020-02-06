@@ -16,6 +16,7 @@ public class Controller {
     void calcular(javafx.event.ActionEvent event) throws IOException {
 
         label.setText(ConexionHilo.conectar(operacion));
+        operacion="";
 
     }
 

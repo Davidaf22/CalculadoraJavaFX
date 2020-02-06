@@ -11,12 +11,13 @@ public class ConexionHilo {
 
     public static String conectar(String operacion) throws IOException{
         Socket clienteSocket = new Socket();
-        InetSocketAddress addr=new InetSocketAddress("10.0.9.133",5555);
+        InetSocketAddress addr=new InetSocketAddress("192.168.0.27",5555);
         clienteSocket.connect(addr);
 
         InputStream is = clienteSocket.getInputStream();
         OutputStream os= clienteSocket.getOutputStream();
 
+        operacion = operacion+",";
         os.write(operacion.getBytes());
 
         byte[] resultado = new byte[25];
